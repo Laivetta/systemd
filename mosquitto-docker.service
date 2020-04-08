@@ -1,4 +1,4 @@
-Unit]
+[Unit]
 Description=Mosquitto container
 After=docker.service
 Wants=network-online.target docker.socket
