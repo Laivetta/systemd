@@ -1,0 +1,14 @@
+Unit]
+Description=Mosquitto container
+After=docker.service
+Wants=network-online.target docker.socket
+Requires=docker.socket
+
+[Service]
+Restart=on-failure
+ExecStart=
+ExecStart=/usr/bin/docker run -p 1883:1883 eclipse-mosquitto
+ExecStop=/usr/bin/docker stop -t 1 eclipse-mosquitto
+
+[Install]
+WantedBy=multi-user.target
